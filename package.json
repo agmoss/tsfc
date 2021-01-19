@@ -16,7 +16,6 @@
     "dist"
   ],
   "scripts": {
-    "start": "ts-node src/index.ts",
     "test": "jest",
     "build": "tsc"
   },
