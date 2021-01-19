@@ -1,35 +1,43 @@
 import { compose } from "../index";
 
-describe('compose', () => {
+/**
+ * function compose(a->b)->(b->c)->(a->c)
+ */
+describe('compose one', () => {
+
+    type A = number;
+    type B = string;
+    type C = Array<string>;
 
     /**
-     * @name f
-     * @param val 
+     * @name f a->b
+     * @param val A 
+     * @returns B
      */
-    const numberToString = (val: number): string => {
-        return val.toString()
+    const aToB = (val: A): B => {
+        return val.toString();
     }
 
     /**
-     * @name g
-     * @param val 
+     * @name g b->c
+     * @param val B
+     * @returns C
      */
-    const doubleNumber = (
-        val: number
-    ): number => {
-        return val + 1
+    const bToC = (
+        val: B
+    ): C => {
+        return [val]
     }
 
-    // fN: (x: number) => string
-    const fN = compose(doubleNumber,numberToString)
+    const aToC = compose(aToB, bToC);
 
-    const ret = fN(4)
+    const ret = aToC(4);
 
     it("should be of type string", () => {
-        expect(typeof ret).toBe('string')
+        expect(Array.isArray(ret)).toBe(true)
     })
 
-    it("should evaluate to '5'", () => {
-        expect(ret).toBe('5')
+    it('should evaluate to ["4"]', () => {
+        expect(ret).toStrictEqual(["4"])
     })
 })

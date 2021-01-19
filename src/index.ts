@@ -4,7 +4,7 @@
  * @remarks
  * Examples of how to apply a function to the result of another
  * 
- * Target: function compose(a->b)->(b->c)->(a->c)
+ * function compose(a->b)->(b->c)->(a->c)
  * 
  */
 
@@ -12,7 +12,7 @@
 /**
  * Apply the result of function f to g 
  * @param f a->b
- * @param g g->c
+ * @param g b->c
  * @returns a->c (x: A) => g(f(x))
  */
 export const compose = <A, B, C>(
