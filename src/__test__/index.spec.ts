@@ -10,7 +10,7 @@ describe('compose one', () => {
     type C = Array<string>;
 
     /**
-     * @name f a->b
+     * @name f2 a->b
      * @param val A 
      * @returns B
      */
@@ -19,7 +19,7 @@ describe('compose one', () => {
     }
 
     /**
-     * @name g b->c
+     * @name f1 b->c
      * @param val B
      * @returns C
      */
@@ -29,7 +29,7 @@ describe('compose one', () => {
         return [val]
     }
 
-    const aToC = compose(aToB, bToC);
+    const aToC = compose(bToC, aToB);
 
     const ret = aToC(4);
 

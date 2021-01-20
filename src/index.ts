@@ -10,14 +10,17 @@
 
 
 /**
- * Apply the result of function f to g 
- * @param f a->b
- * @param g b->c
- * @returns a->c (x: A) => g(f(x))
+ * Apply the result of function f2 to f1 
+ * right to left  
+ * left(right(x))
+ * 
+ * @param f1 a->b
+ * @param f2 b->c
+ * @returns a->c (x: A) => f(g(x))
  */
 export const compose = <A, B, C>(
-    f: (x: A) => B,
-    g: (x: B) => C,
+    f1: (x: B) => C,
+    f2: (x: A) => B,
 ): (x: A) => C => {
-    return x => g(f(x))
+    return x => f1(f2(x))
 }

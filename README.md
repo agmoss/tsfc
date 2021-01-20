@@ -4,5 +4,5 @@
 
 ```typescript
 // function compose(a->b)->(b->c)->(a->c)
-const compose: <A, B, C>(f: (x: A) => B, g: (x: B) => C) => (x: A) => C
+const compose: <A, B, C>(f1: (x: B) => C, f2: (x: A) => B) => (x: A) => C
 ```
